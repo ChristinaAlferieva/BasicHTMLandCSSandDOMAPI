@@ -2,12 +2,36 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>Note-taking app</title>
 		<link rel="stylesheet" href="style.css">
+		<script src="site.js"></script>
 	</head>
   
 	<body>
-		
-		
+		<div id="wrapper">
+			<div id="note-editor">
+			  <h2 id="note-editor-title">Create Note</h2>
+			  <label>Title:</label>
+			  <input type="text" id="title" name="title" />
+			  <label>Body:</label>
+			  <textarea rows="10" cols="42" id="message" name="message"></textarea>
+			  <label>Color:</label>
+			  <select id="color" name="color">
+				<option value="red" selected>Red</option>
+				<option value="green">Green</option>
+				<option value="blue">Blue</option>
+			  </select>
+			  <div id="button">
+				<button id="add-btn">Create Note</button>
+				<div id="error"></div>
+			  </div>
+			</div>
+
+			<div id="notes-section">
+			  <h2>Notes</h2>
+			  <ul id="notes"></ul>
+			</div>
+		</div>
 	</body>
+		
 </html>
