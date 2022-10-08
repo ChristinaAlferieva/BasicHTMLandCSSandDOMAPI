@@ -5,45 +5,34 @@
 		<meta name="viewport" content="width=device-width, intial-scale=1">
 		<title>Note-taking App</title>
 		<link rel="stylesheet" href="style.css">
-		<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 	</head>
   
 	<body>
-		<div class="app">
-			<li class="add_note">
-				<div class="sign"><i class="uil uil-plus"></i></div>
-			<p>Add a note</p>
-			</li>
-		</div>
-		
-		<div class="note_popup">
-			<div class="Popup">
-				<div class="content">
-					<header>
-						<p></p>
-						<i class="uil uil-times"></i>
-					</header>
-					<form action="#">
-						<div class="title">
-							<label>Title:</label>
-							<input type="text">
-						</div>
-						<div class="body">
-							<label>Body:</label>
-							<textarea rows="10" ></textarea>
-						</div>
-						<div class="pick_colour">
-							<label>Colour:</label>
-							<select id="colour" name="colour">
-								<option value="red" selected>Red</option>
-								<option value="pink">Pink</option>
-								<option value="white">White</option>
-							</select>
-						</div>
-						<button></button>
-					</form>
+		<div class="wrapper">
+			<div id="note_details">
+				<h2 id="note_title">Create a new note</h2>
+				<label>Title:</label>
+					<input type="text" id="title" name="title" />
+				<label>Description:</label>
+					<textarea rows="8" cols="38" id="body" name="body"></textarea>
+				<label>Colour:</label>
+					<select id="colour" name="colour">
+						<option value="pink" selected>Pink</option>
+						<option value="blue">Blue</option>
+						<option value="purple">Purple</option>
+						<option value="green">Green</option>
+					</select>
+				<div id="button">
+					<button id="add_button">Add Note</button>
+					<div id="erroe"></div>
 				</div>
-			<div>
+			</div>
+					
+			<div id="my_notes">
+				<h2>My notes</h2>
+				<br></br>
+				<ul id="notes"></ul>
+			</div>
 		</div>
 		
 		<script src="site.js"></script>

@@ -32,9 +32,10 @@ body {
 	width: 80px;
 	border-radius: 50%;
 	border: 5px dotted lightpink;
+	justify-content: center;
 }
 
-.add_note, .sign, header {
+.add_note, .sign, .bottom-content, .popup, header, .settings .menu li {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
