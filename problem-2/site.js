@@ -15,7 +15,7 @@
 		myNotes: document.getElementById('my_notes'),
 		editMode: false,
 
-		init: function() {
+		init:function() {
 			notesApp.title.addEventListener('focus', notesApp.clearError);
 			notesApp.noteMessage.addEventListener('focus', notesApp.clearError);
 
@@ -24,19 +24,19 @@
 
 			notesApp.addButton.addEventListener('click', notesApp.createNote);
 		},
-		detectInput: function() {
+		detectInput:function() {
 			if(!notesApp.title.value || !notesApp.message.value) {
 				return;
 			} else {
 				notesApp.addButton.innerText = 'Add Note';
 			}
 		},
-		clearError: function() {
+		clearError:function() {
 			notesApp.title.classList.remove('isEmpty');
 			notesApp.noteMessage.classList.remove('isEmpty');
 			notesApp.errorMessage.innerHTML = '';
 		},
-		createNote: function() {
+		createNote:function() {
 			if(!notesApp.title.value || !notesApp.noteMessage.value) {
 				if(!notesApp.title.value) {
 				notesApp.title.classList.add('isEmpty');  
@@ -56,7 +56,7 @@
 			notesApp.addNote(note);
 			}
 		},
-		addNote: function(note) {
+		addNote:function(note) {
 			var li = document.createElement('li'),
 			deleteButton = document.createElement('span'),
 			editButton = document.createElement('span'),
@@ -100,7 +100,7 @@
 				}, 150);
 			}
 		},
-		editNote: function() {
+		editNote:function() {
 			var li,
 			title,
 			noteMessage,
@@ -133,7 +133,7 @@
 				li.remove();
 			}, 150);
 		},
-		openNote: function(note) {
+		openNote:function(note) {
 			if(!notesApp.editMode) {
 				notesApp.noteDetails.classList.add('hide');
 				notesApp.myNotes.classList.add('hide');
@@ -156,7 +156,7 @@
 				return;
 			}  
 		},
-		saveNote: function() {
+		saveNote:function() {
 			notesApp.createNote();
 
 			notesApp.noteDetails.classList.add('hide');
@@ -176,7 +176,7 @@
 				notesApp.editMode = false;
 			}, 150);
 		},    
-		deleteNote: function() {
+		deleteNote:function() {
 			this.parentNode.remove();
 		}
 	};
