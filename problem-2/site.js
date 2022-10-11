@@ -24,18 +24,15 @@
 
 			notesApp.addButton.addEventListener('click', notesApp.createNote);
 		},
+		
 		detectInput:function() {
-			if(!notesApp.title.value || !notesApp.message.value) {
+			if(!notesApp.title.value || !notesApp.noteMessage.value) {
 				return;
 			} else {
 				notesApp.addButton.innerText = 'Add Note';
 			}
 		},
-		clearError:function() {
-			notesApp.title.classList.remove('isEmpty');
-			notesApp.noteMessage.classList.remove('isEmpty');
-			notesApp.errorMessage.innerHTML = '';
-		},
+		
 		createNote:function() {
 			if(!notesApp.title.value || !notesApp.noteMessage.value) {
 				if(!notesApp.title.value) {
@@ -56,35 +53,42 @@
 			notesApp.addNote(note);
 			}
 		},
+		
+		clearError:function() {
+			notesApp.title.classList.remove('isEmpty');
+			notesApp.noteMessage.classList.remove('isEmpty');
+			notesApp.errorMessage.innerHTML = '';
+		},
+		
 		addNote:function(note) {
 			var li = document.createElement('li'),
-			deleteButton = document.createElement('span'),
-			editButton = document.createElement('span'),
 			title = document.createElement('span'),
 			noteMessage = document.createElement('span'),
+			deleteButton = document.createElement('span'),
+			editButton = document.createElement('span'),
 			footer = document.createElement('footer');
 
 			deleteButton.className = 'delete';
 			deleteButton.innerHTML = '<i class="fa fa-trash-o"></i> Delete';
 			deleteButton.addEventListener('click', notesApp.deleteNote);
 
-			title.className = 'note_title';
-			title.innerHTML = note.title;
-
-			noteMessage.className = 'note_message';
-			noteMessage.innerHTML = note.noteMessage;
-
 			editButton.className = 'edit';
 			editButton.innerHTML = '<i class="fa fa-pencil-square-o"></i> Edit';
 			editButton.addEventListener('click', notesApp.editNote);
+			
+			noteMessage.className = 'note_message';
+			noteMessage.innerHTML = note.noteMessage;
+			
+			title.className = 'note_title';
+			title.innerHTML = note.title;
 
 			footer.appendChild(editButton);
 		  
 			li.className = note.colour;
 
-			li.appendChild(deleteButton);
 			li.appendChild(title);
 			li.appendChild(noteMessage);
+			li.appendChild(deleteButton);
 			li.appendChild(footer);
 
 			notesApp.notes.prepend(li);
@@ -100,6 +104,7 @@
 				}, 150);
 			}
 		},
+		
 		editNote:function() {
 			var li,
 			title,
@@ -133,6 +138,7 @@
 				li.remove();
 			}, 150);
 		},
+		
 		openNote:function(note) {
 			if(!notesApp.editMode) {
 				notesApp.noteDetails.classList.add('hide');
@@ -156,6 +162,7 @@
 				return;
 			}  
 		},
+		
 		saveNote:function() {
 			notesApp.createNote();
 
@@ -175,7 +182,8 @@
 				notesApp.noteDetails.classList.remove('hide');
 				notesApp.editMode = false;
 			}, 150);
-		},    
+		},  
+		
 		deleteNote:function() {
 			this.parentNode.remove();
 		}
